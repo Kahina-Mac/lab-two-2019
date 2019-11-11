@@ -106,36 +106,125 @@ Connect your arduino to bme280 using following sketch.
 ![connect](http://static.cactus.io/img/hookups/arduino/connect-arduino-to-bme280-i2c-sensor.jpg)
 
 To add BMP280 Library goto `Tools` -> `Library Manager` -> search for `BMP280`
+### Part 3.1
 Please use the example from [BMP280 Example](https://github.com/adafruit/Adafruit_BMP280_Library/tree/master/examples/bmp280test).
-
-- Upload the code on(`lab/2/report/3/code.ino`).
-- Create a Fritzing sketch and export it on (`lab/2/report/3/sketch.png`).
-- Take a photo from your board (`lab/2/report/3/photo.png`).
+- Upload the code on(`lab/2/report/3/code1.ino`).
+- Create a Fritzing sketch and export it on (`lab/2/report/3/sketch1.png`).
+- Take a photo from your board (`lab/2/report/3/photo1.png`).
 - Write a short report on (`lab/2/report/3/README.md`)
+### Part 3.2
+Connect your arduino to ESP32 using I2C.
+
+Arduino|	ESP32
+-|-
+SDA (A4)	|SDA (default is GPIO 21)
+SCL	(A5)  |SCL (default is GPIO 22)
+GND	| GND 
+VCC	| usually 3.3V or 5V (not needed if you are connected by usb)
+
+- Create a Fritzing sketch and export it on (`lab/2/report/3/sketch2.png`).
+- Upload the code on(`lab/2/report/3/arduino2.ino`, `lab/2/report/3/esp2.ino`).
+- Take a photo from your board (`lab/2/report/3/photo2.png`).
+- Write a short report on what is the following codes will do (`lab/2/report/3/README.md`) don't forget to include images in README.md
+
+> Note: ESP32 has no slave mode.
+
+Code for ESP32 for being in Master mode.
+```C
+#include <Wire.h>
+// Include the required Wire library for I2C<br>#include 
+int x = 0;
+void setup() {
+  // Start the I2C Bus as Master
+  Wire.begin(); 
+}
+void loop() {
+  Wire.beginTransmission(9); // transmit to device #9
+  Wire.write(x);              // sends x 
+  Wire.endTransmission();    // stop transmitting
+  x++; // Increment x
+  if (x > 5) x = 0; // `reset x once it gets 6
+  delay(500);
+}
+```
+Code For Slave (Arduino)
+```C
+#include <Wire.h>
+
+// Include the required Wire library for I2C<br>#include <Wire.h>
+int LED = LED_BUILTIN;
+int x = 0;
+void setup() {
+  // Define the LED pin as Output
+  Serial.begin(9600);
+  pinMode (LED, OUTPUT);
+  // Start the I2C Bus as Slave on address 9
+  Wire.begin(9);
+  Serial.println("Ok"); 
+  
+  // Attach a function to trigger when something is received.
+  Wire.onReceive(receiveEvent);
+}
+void receiveEvent(int bytes) {
+  x = Wire.read();    // read one character from the I2C
+  Serial.println(x); 
+}
+void loop() {
+  //If value received is 0 blink LED for 200 ms
+  if (x == 0) {
+    digitalWrite(LED, HIGH);
+    delay(200);
+    digitalWrite(LED, LOW);
+    delay(200);
+  }
+  //If value received is 3 blink LED for 400 ms
+  if (x == 3) {
+    digitalWrite(LED, HIGH);
+    delay(400);
+    digitalWrite(LED, LOW);
+    delay(400);
+  }
+}
+```
 
 
-## SPI
-Please follow the tutorial from  [SPI](https://circuitdigest.com/microcontroller-projects/arduino-spi-communication-tutorial)
+## Exercise 1 (I2C)
+- Connect ESP32, Arduino and BMP280 using I2C
+- Set Arduino is Slave with address 12 
+- Set ESP32 as Master
+- ESP32: 
+  -- Read data from BMP280 
+  -- Send Temperature, Pressure and Humidity To Arduino (Use one byte for each one)
+- Arduino:
+  -- Write Temperature, Pressure and Humidity To Serial Port (Human Readable form)
+  
+- Create a Fritzing sketch and export it on (`lab/2/exercise/1/sketch.png`).
+- Upload the code on(`lab/2/exercise/1/arduino.ino`, `lab/2/exercise/1/esp.ino`).
+- Take a photo from your board (`lab/2/exercise/1/photo.png`).
+- Write a short report on how it works in (`lab/2/exercise/1/README.md`) don't forget to include images in README.md.
 
-Instead using 2 Arduino Uno, We will use one Arduino Uno and one ESP32.
-- Find `MISO` `MOSI` `SCK` `SSS` in the pin maps from last TP's Readme file for both ESP32 and Arduino Uno.
-- Create a Fritzing sketch and export it on (`lab/2/report/4/sketch.png`).
-- Assume arduino as Slave and esp32 as Master.
-- Upload the code on(`lab/2/report/4/arduino.ino`, `lab/2/report/4/esp32.ino`).
-- Take a photo from your board (`lab/2/report/4/photo.png`).
-- Write a short report on how it works in (`lab/2/report/4/README.md`)
 
 
-## SPI vs I2C
-- I2C requires only two wires, while SPI requires three or four.
-- SPI supports higher speed full-duplex communication while I2C is slower.
-- I2C draws more power than SPI.
-- I2C supports multiple devices on the same bus without additional select signal lines through in-communication device addressing while SPI requires additional signal lines to manage multiple devices on the same bus.
-- I2C ensures that data sent is received by the slave device while SPI does not verify that data is received correctly.
-- I2C can be locked up by one device that fails to release the communication bus.
-- SPI cannot transmit off the PCB while I2C can, albeit at low data transmission speeds.
-- I2C is cheaper to implement than the SPI communication protocol.
-- SPI only supports one master device on the bus while I2C supports multiple master devices.
-- I2C is less susceptible to noise than SPI.
-- SPI can only travel short distances and rarely off of the PCB while I2C can transmit data over much greater distances, although at low data rates.
-- The lack of a formal standard has resulted in several variations of the SPI protocol, variations which have been largely avoided with the I2C protocol.
+## Exercise 2 (SPI)
+SPI (Serial Peripheral Interface) is a serial communication protocol. SPI interface was found by Motorola in 1970. SPI has a full duplex connection, which means that the data is sent and received simultaneously. That is a master can send data to slave and a slave can send data to master simultaneously. SPI is synchronous serial communication means the clock is required for communication purpose.
+
+SPI has following four lines MISO, MOSI, SS, and CLK
+
+- MISO (Master in Slave Out) or SDO (Slave Data Out)- The Slave line for sending data to the master.
+- MOSI (Master Out Slave In) or SDI (Slave Data In) - The Master line for sending data to the peripherals.
+- SCK (Serial Clock) - The clock pulses which synchronize data transmission generated by the master.
+- SS (Slave Select) – Master can use this pin to enable and disable specific devices.
+ 
+![SPI](https://circuitdigest.com/sites/default/files/inlineimages/u/SPI-communication.png)
+
+To start communication between master and slave we need to set the required device's Slave Select (SS) pin to LOW, so that it can communicate with the master. When it's high, it ignores the master. This allows you to have multiple SPI devices sharing the same MISO, MOSI, and CLK lines of master. 
+
+
+Connect the BMP280 to **ESP32** via SPI. [More Info](http://cactus.io/hookups/sensors/barometric/bme280/hookup-arduino-to-bme280-barometric-pressure-sensor-spi)
+- Don't fotget to use ESP32
+- Find `MISO` `MOSI` `SCK` `SSS` in the pin maps from Lab 1 Readme file for ESP32.
+- Create a Fritzing sketch and export it on (`lab/2/exercise/2/sketch.png`).
+- Upload the code on(`lab/2/exercise/2/esp.ino`).
+- Take a photo from your board (`lab/2/exercise/2/photo.png`).
+- Write a short report on how it works in (`lab/2/exercise/2/README.md`) don't forget to include images in README.md.
+- Enumare the differences between SPI and I2C in the README.md.
