@@ -1,4 +1,7 @@
-# lab-two-2019
+# Lab 2 Introduction to communication 
+> It is mandetory to prepare your documents in `Markdown` format. We prepared an example repository in [Lab Report Sample](https://github.com/efrei-paris-sud/2019-sample-project/tree/master/lab/1). 
+> All needed codes described in this repository. For more details about markdown please visit the [Example Report](https://github.com/efrei-paris-sud/2019-sample-project/tree/master/lab/1/report/1)
+
 Put all reports into `lab/2/` folder in your repository. 
 ## Fritzing
 The software is created in the spirit of the Processing programming language and the Arduino microcontroller[4] and allows a designer, artist, researcher, or hobbyist to document their Arduino-based prototype and create a PCB layout for manufacturing. 
@@ -7,12 +10,12 @@ The software is created in the spirit of the Processing programming language and
 - Create a new `sketch`.
 - Search for `NodeMCU-32S` fritzing part and add it to Fritzing.
 Note: please insure that the pin maps of the part is as same as the image in Lab 1.
-- Create the following sketch. (Instead of Char A in the Sketch use first letter of your group name)
+- Create a random sketch your self (at least 5 component is needed and please don't forget connect them and use different colors in wiring)
 -- Export the result as image(`lab/2/report/1/sketch.png`)
 - Design the Schematic of that. Please style it in a good format.
 -- Export the result as image(`lab/2/report/1/schematic.png`)
 - Make a (`lab/2/report/1/README.md`) file and put a the images and a small description on it and **USE MARKDOWN FORMAT PLEASE**. For images please use the uploaded images from your `github`.
-[Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+[Example Report](https://github.com/efrei-paris-sud/2019-sample-project/tree/master/lab/1/report/1)
 
 # Communication 
 In this lab, we will learn how the I2C/SPI/Serial communication protocol works.
@@ -27,7 +30,8 @@ void setup() {
   Serial.begin(9600);  // Start serial Serial at 9600 baud
 }
 ```
-It is important that both devices have the same baud rate (transmission speed). [more info](https://fr.wikipedia.org/wiki/UART)
+> It is important that both devices have the same baud rate (transmission speed). [more info](https://fr.wikipedia.org/wiki/UART)
+> You should change the baud rate in your client to read the data correctly.
 
 To send data to the other device we can easily use. It will print `string`.
 ```C
@@ -67,11 +71,16 @@ void loop() {
   }
 }
 ```
+
+You can also connect 2 devices with serial communication. Please don't forget to connect TX from one side to RX in another side.
+
+![serial communication](https://cdn.sparkfun.com/assets/2/5/c/4/5/50e1ce8bce395fb62b000000.png)
+
 ### Practic 2:
-- Develop an arduino program which can read from serial and adjust the passive buzzer frequency.(`lab/2/report/2/code.ino`).
+- Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code.ino`).
 - Create a Fritzing sketch and export it on(`lab/2/report/2/sketch.png`).
-- Connect your Arduino board to computer. Open a serial communication software(you can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/))
-- Write a short report on (Lab/2/report/2/README.md)
+- Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/))
+- Write a short report on (lab/2/report/2/README.md)
 
 ## I2C
 Please follow the tutorial from [I2C](https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
@@ -83,14 +92,15 @@ Use ... instead of GY-80.
 
 
 ## SPI
-Please follow the tutorial from  [SPI](https://circuits4you.com/2019/01/03/arduino-spi-communication-example/)
+Please follow the tutorial from  [SPI](https://circuitdigest.com/microcontroller-projects/arduino-spi-communication-tutorial)
 
 Instead using 2 Arduino Uno, We will use one Arduino Uno and one ESP32.
-- Find `MISO` `MOSI` `` ``
-- Upload the code on(`lab/2/report/4/arduino.ino`, `lab/2/report/4/esp32.ino`).
+- Find `MISO` `MOSI` `SCK` `SSS` in the pin maps from last TP's Readme file for both ESP32 and Arduino Uno.
 - Create a Fritzing sketch and export it on (`lab/2/report/4/sketch.png`).
+- Assume arduino as Slave and esp32 as Master.
+- Upload the code on(`lab/2/report/4/arduino.ino`, `lab/2/report/4/esp32.ino`).
 - Take a photo from your board (`lab/2/report/4/photo.png`).
-- Write a short report on (`lab/2/report/4/README.md`)
+- Write a short report on how it works in (`lab/2/report/4/README.md`)
 
 
 ## SPI vs I2C
