@@ -191,14 +191,12 @@ void loop() {
 ## Report Deadline = 15/11/2019
 ## Exercise 1 (I2C) Deadline = 21/11/2019
 - Connect ESP32, Arduino and BMP280 using I2C
-- Set Arduino is Slave with address 12 
+- Set Arduino is Slave with i2c address = 12 
 - Set ESP32 as Master
-- ESP32: 
-  -- Read data from BMP280 
-  -- Send Temperature, Pressure and Humidity To Arduino (Use one byte for each one)
-- Arduino:
-  -- Write Temperature, Pressure and Humidity To Serial Port (Human Readable form)
-  
+- In ESP32 write a code to: 
+  - Read data from BMP280 
+  - Send Temperature, Pressure and Humidity To Arduino (Use one byte for each one)
+- In Arduino write a code to Write Temperature, Pressure and Humidity (which is read from ESP32) To Serial Port (Human Readable form)
 - Create a Fritzing sketch and export it on (`lab/2/exercise/1/sketch.png`).
 - Upload the code on(`lab/2/exercise/1/arduino.ino`, `lab/2/exercise/1/esp.ino`).
 - Take a photo from your board (`lab/2/exercise/1/photo.png`).
