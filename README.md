@@ -8,10 +8,10 @@ The software is created in the spirit of the Processing programming language and
 - Search for `NodeMCU-32S` fritzing part and add it to Fritzing.
 Note: please insure that the pin maps of the part is as same as the image in Lab 1.
 - Create the following sketch. (Instead of Char A in the Sketch use first letter of your group name)
--- Export the result as image(`Lab/2/1/sketch.png`)
+-- Export the result as image(`Lab/2/Report/1/sketch.png`)
 - Design the Schematic of that. Please style it in a good format.
--- Export the result as image(`Lab/2/1/schematic.png`)
-- Make a (`Lab/2/1/README.md`) file and put a the images and a small description on it and **USE MARKDOWN FORMAT PLEASE**. For images please use the uploaded images from your `github`.
+-- Export the result as image(`Lab/2/Report/1/schematic.png`)
+- Make a (`Lab/2/Report/1/README.md`) file and put a the images and a small description on it and **USE MARKDOWN FORMAT PLEASE**. For images please use the uploaded images from your `github`.
 [Markdown-Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 # Communication 
@@ -68,28 +68,29 @@ void loop() {
 }
 ```
 ### Practic 2:
-- Develop an arduino program which can read from serial and adjust the passive buzzer frequency.(`Lab/2/2/code.ino`).
-- Create a Fritzing sketch and export it on(`Lab/2/2/sketch.png`).
+- Develop an arduino program which can read from serial and adjust the passive buzzer frequency.(`Lab/2/Report/2/code.ino`).
+- Create a Fritzing sketch and export it on(`Lab/2/Report/2/sketch.png`).
 - Connect your Arduino board to computer. Open a serial communication software(you can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/))
-- Write a short report on (Lab/2/2/README.md)
+- Write a short report on (Lab/2/Report/2/README.md)
 
 ## I2C
 Please follow the tutorial from [I2C](https://howtomechatronics.com/tutorials/arduino/how-i2c-communication-works-and-how-to-use-it-with-arduino/)
 Use ... instead of GY-80.
-- Upload the code on(`Lab/2/3/code.ino`).
-- Create a Fritzing sketch and export it on (`Lab/2/3/sketch.png`).
-- Take a photo from your board (`Lab/2/3/photo.png`).
-- Write a short report on (`Lab/2/3/README.md`)
+- Upload the code on(`Lab/2/Report/3/code.ino`).
+- Create a Fritzing sketch and export it on (`Lab/2/Report/3/sketch.png`).
+- Take a photo from your board (`Lab/2/Report/3/photo.png`).
+- Write a short report on (`Lab/2/Report/3/README.md`)
 
 
 ## SPI
 Please follow the tutorial from  [SPI](https://circuits4you.com/2019/01/03/arduino-spi-communication-example/)
 
 Instead using 2 Arduino Uno, We will use one Arduino Uno and one ESP32.
-- Upload the code on(`Lab/2/4/arduino.ino`, `Lab/2/4/esp32.ino`).
-- Create a Fritzing sketch and export it on (`Lab/2/4/sketch.png`).
-- Take a photo from your board (`Lab/2/4/photo.png`).
-- Write a short report on (`Lab/2/4/README.md`)
+- Find `MISO` `MOSI` `` ``
+- Upload the code on(`Lab/2/Report/4/arduino.ino`, `Lab/2/Report/4/esp32.ino`).
+- Create a Fritzing sketch and export it on (`Lab/2/Report/4/sketch.png`).
+- Take a photo from your board (`Lab/2/Report/4/photo.png`).
+- Write a short report on (`Lab/2/Report/4/README.md`)
 
 
 ## SPI vs I2C
