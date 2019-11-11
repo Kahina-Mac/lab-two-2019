@@ -3,6 +3,7 @@
 > All needed codes described in this repository. For more details about markdown please visit the [Example Report](https://github.com/efrei-paris-sud/2019-sample-project/tree/master/lab/1/report/1)
 
 Put all reports into `lab/2/` folder in your repository. 
+> Report Deadline = 15/11/2019
 ## Fritzing
 The software is created in the spirit of the Processing programming language and the Arduino microcontroller[4] and allows a designer, artist, researcher, or hobbyist to document their Arduino-based prototype and create a PCB layout for manufacturing. 
 
@@ -187,8 +188,8 @@ void loop() {
 }
 ```
 
-
-## Exercise 1 (I2C)
+## Report Deadline = 15/11/2019
+## Exercise 1 (I2C) Deadline = 21/11/2019
 - Connect ESP32, Arduino and BMP280 using I2C
 - Set Arduino is Slave with address 12 
 - Set ESP32 as Master
@@ -205,7 +206,7 @@ void loop() {
 
 
 
-## Exercise 2 (SPI)
+## Exercise 2 (SPI) Deadline = 21/11/2019
 SPI (Serial Peripheral Interface) is a serial communication protocol. SPI interface was found by Motorola in 1970. SPI has a full duplex connection, which means that the data is sent and received simultaneously. That is a master can send data to slave and a slave can send data to master simultaneously. SPI is synchronous serial communication means the clock is required for communication purpose.
 
 SPI has following four lines MISO, MOSI, SS, and CLK
