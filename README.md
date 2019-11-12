@@ -79,9 +79,9 @@ You can also connect 2 devices with serial communication. Please don't forget to
 
 ### Practic 2:
 - Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code1.ino`).
-- Follow the [following](https://highvoltages.co/tutorial/arduino-tutorial/arduino-real-time-plotting-with-python/) to plot the value read from variable resistor connected to A0 (`lab/2/report/2/code2.ino`).
+- Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/)) and send a value to your board!
+- Follow [here](https://highvoltages.co/tutorial/arduino-tutorial/arduino-real-time-plotting-with-python/) to plot the value read from variable resistor connected to A0 (`lab/2/report/2/code2.ino`).
 - Create a Fritzing sketch contains both and export it on(`lab/2/report/2/sketch.png`).
-- Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/))
 - Write a short report on (lab/2/report/2/README.md)
 
 ## I2C
@@ -107,9 +107,9 @@ Connect your arduino to bme280 using following sketch.
 - SDA -> A4
 ![connect](http://static.cactus.io/img/hookups/arduino/connect-arduino-to-bme280-i2c-sensor.jpg)
 
-To add BMP280 Library goto `Tools` -> `Library Manager` -> search for `BMP280`
+To add BME280 Library goto `Tools` -> `Library Manager` -> search for `BME280`
 ### Part 3.1
-Please use the example from [BMP280 Example](https://github.com/adafruit/Adafruit_BMP280_Library/tree/master/examples/bmp280test).
+Please use the example added from `File-> Example->BME280->bmetest`
 - Upload the code on(`lab/2/report/3/code1.ino`).
 - Create a Fritzing sketch and export it on (`lab/2/report/3/sketch1.png`).
 - Take a photo from your board (`lab/2/report/3/photo1.png`).
@@ -211,7 +211,7 @@ Upload it to arduino and see result in Serial.
   
 ## Report Deadline = 15/11/2019
 ## Exercise 1 (I2C) Deadline = 21/11/2019
-- Connect ESP32, Arduino and BMP280 using I2C
+- Connect ESP32, Arduino and BME280 using I2C
 - (Bonus-Optional) add MPU6050.
 - Set Arduino as Slave with i2c address = 12 
 - In Arudino write a code to :
@@ -220,7 +220,7 @@ Upload it to arduino and see result in Serial.
 
 - Set ESP32 as Master
 - In ESP32 write a code to: 
-  - Read data from BMP280 
+  - Read data from BME280 
   - Read Value from Arduino (Read one byte)
   - (Bonus-Optional) Read data from MPU6050
   - Write values to the serial in comma seperated form.
@@ -253,7 +253,7 @@ SPI has following four lines MISO, MOSI, SS, and CLK
 To start communication between master and slave we need to set the required device's Slave Select (SS) pin to LOW, so that it can communicate with the master. When it's high, it ignores the master. This allows you to have multiple SPI devices sharing the same MISO, MOSI, and CLK lines of master. 
 
 
-Connect the BMP280 to **ESP32** via SPI. [More Info](http://cactus.io/hookups/sensors/barometric/bme280/hookup-arduino-to-bme280-barometric-pressure-sensor-spi)
+Connect the BME280 to **ESP32** via SPI. [More Info](http://cactus.io/hookups/sensors/barometric/bme280/hookup-arduino-to-bme280-barometric-pressure-sensor-spi)
 - Don't fotget to use ESP32
 - Find `MISO` `MOSI` `SCK` `SSS` in the pin maps from Lab 1 Readme file for ESP32.
 - Create a Fritzing sketch and export it on (`lab/2/exercise/2/sketch.png`).
