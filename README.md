@@ -224,9 +224,9 @@ Upload it to arduino and see result in Serial.
   - Read Value from Arduino (Read one byte)
   - (Bonus-Optional) Read data from MPU6050
   - Write values to the serial in comma seperated form.
-  > Example: ```
+  > Example: 
+  ```
   Index, Temperature,Pressure,Humidity, arduino input, acceleration.x,acceleration.y,acceleration.z, gyro.x, gyro.y, gyro.z
-  
   ```
 - Plot data in spreadsheet. (Copy all data in Serial Console to Excel and plot using that)
 - Plot data in realtime Using (hint: review practice 2)
