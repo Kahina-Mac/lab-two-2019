@@ -78,8 +78,9 @@ You can also connect 2 devices with serial communication. Please don't forget to
 ![serial communication](https://cdn.sparkfun.com/assets/2/5/c/4/5/50e1ce8bce395fb62b000000.png)
 
 ### Practic 2:
-- Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code.ino`).
-- Create a Fritzing sketch and export it on(`lab/2/report/2/sketch.png`).
+- Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code1.ino`).
+- Follow the [following](https://highvoltages.co/tutorial/arduino-tutorial/arduino-real-time-plotting-with-python/) to plot the value read from variable resistor connected to A0 (`lab/2/report/2/code2.ino`).
+- Create a Fritzing sketch contains both and export it on(`lab/2/report/2/sketch.png`).
 - Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/))
 - Write a short report on (lab/2/report/2/README.md)
 
@@ -113,6 +114,7 @@ Please use the example from [BMP280 Example](https://github.com/adafruit/Adafrui
 - Create a Fritzing sketch and export it on (`lab/2/report/3/sketch1.png`).
 - Take a photo from your board (`lab/2/report/3/photo1.png`).
 - Write a short report on (`lab/2/report/3/README.md`)
+
 ### Part 3.2
 Connect your arduino to ESP32 using I2C.
 
@@ -187,16 +189,48 @@ void loop() {
   }
 }
 ```
+### Part 3.3 (Bonus-Optional)
+Ask me for GY-521 module.
+This module has the MPU6050 which contains both a 3-Axis Gyroscope and a 3-Axis accelerometer allowing measurements of both independently, but all based around the same axes, thus eliminating the problems of cross-axis errors when using separate devices.
+Connect your arduino to MPU6050 using following sketch.
+- VCC -> 5V
+- GNF -> GND
+- SCL -> A5
+- SDA -> A4
 
+![MPU6050](mpu6050.png)
+
+To add MPU6050 Library goto `Tools` -> `Library Manager` -> search for `MPU6050`
+
+Look for Example added in File->Examples-> MPU6050 -> plotter
+
+Upload it to arduino and see result in Serial.
+
+
+
+  
 ## Report Deadline = 15/11/2019
 ## Exercise 1 (I2C) Deadline = 21/11/2019
 - Connect ESP32, Arduino and BMP280 using I2C
-- Set Arduino is Slave with i2c address = 12 
+- (Bonus-Optional) add MPU6050.
+- Set Arduino as Slave with i2c address = 12 
+- In Arudino write a code to :
+  - Read input analog from A0 which is connected to a variable resistor. (Hint Practice 2)
+  - Send the value to ESP32 using I2C
+
 - Set ESP32 as Master
 - In ESP32 write a code to: 
   - Read data from BMP280 
-  - Send Temperature, Pressure and Humidity To Arduino (Use one byte for each one)
-- In Arduino write a code to Write Temperature, Pressure and Humidity (which is read from ESP32) To Serial Port (Human Readable form)
+  - Read Value from Arduino (Read one byte)
+  - (Bonus-Optional) Read data from MPU6050
+  - Write values to the serial in comma seperated form.
+  > Example: ```
+  Index, Temperature,Pressure,Humidity, arduino input, acceleration.x,acceleration.y,acceleration.z, gyro.x, gyro.y, gyro.z
+  
+  ```
+- Plot data in spreadsheet. (Copy all data in Serial Console to Excel and plot using that)
+- Plot data in realtime Using (hint: review practice 2)
+  
 - Create a Fritzing sketch and export it on (`lab/2/exercise/1/sketch.png`).
 - Upload the code on(`lab/2/exercise/1/arduino.ino`, `lab/2/exercise/1/esp.ino`).
 - Take a photo from your board (`lab/2/exercise/1/photo.png`).
@@ -204,7 +238,7 @@ void loop() {
 
 
 
-## Exercise 2 (SPI) Deadline = 21/11/2019
+## Exercise 2 (SPI) Deadline = 22/11/2019 
 SPI (Serial Peripheral Interface) is a serial communication protocol. SPI interface was found by Motorola in 1970. SPI has a full duplex connection, which means that the data is sent and received simultaneously. That is a master can send data to slave and a slave can send data to master simultaneously. SPI is synchronous serial communication means the clock is required for communication purpose.
 
 SPI has following four lines MISO, MOSI, SS, and CLK
