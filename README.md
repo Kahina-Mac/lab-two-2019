@@ -80,7 +80,10 @@ You can also connect 2 devices with serial communication. Please don't forget to
 ### Practic 2:
 - Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code1.ino`).
 - Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/)) and send a value to your board!
-- Follow [here](https://highvoltages.co/tutorial/arduino-tutorial/arduino-real-time-plotting-with-python/) to plot the value read from variable resistor connected to A0 (`lab/2/report/2/code2.ino`).
+- Remember the lab in TP1 and connect your arduino to read value from variable resistor connected to A0 (`lab/2/report/2/code2.ino`). Then send the value to computer with serial and plot it. Hint: only send sensor value without any other string and follow the steps:
+  - `pip install serial`
+  - `pip install pyserial`
+  - The code for ploting exist in:[here](plot.py)
 - Create a Fritzing sketch contains both and export it on(`lab/2/report/2/sketch.png`).
 - Write a short report on (lab/2/report/2/README.md)
 
