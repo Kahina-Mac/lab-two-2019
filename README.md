@@ -80,7 +80,7 @@ You can also connect 2 devices with serial communication. Please don't forget to
 ### Practic 2:
 - Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code1.ino`).
 - Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/)) and send a value to your board!
-- Remember the lab in TP1 and connect your arduino to read value from variable resistor connected to A0 (`lab/2/report/2/code2.ino`). Then send the value to computer with serial and plot it. Hint: only send sensor value without any other string and follow the steps:
+- Connect the LDR to arduino [more info](https://maker.pro/arduino/tutorial/how-to-use-an-ldr-sensor-with-arduino) (`lab/2/report/2/code2.ino`). Then send the value to computer with serial and plot it. Hint: only send sensor value without any other string and follow the steps:
   - `pip install serial`
   - `pip install pyserial`
   - The code for ploting exist in:[here](plot.py)
@@ -136,7 +136,7 @@ VCC	| usually 3.3V or 5V (not needed if you are connected by usb)
 > Note: ESP32 has no slave mode.
 
 Code for ESP32 for being in Master mode.
-```C
+```C 
 #include <Wire.h>
 // Include the required Wire library for I2C<br>#include 
 int x = 0;
