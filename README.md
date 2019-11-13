@@ -84,5 +84,6 @@ You can also connect 2 devices with serial communication. Please don't forget to
   - `pip install serial`
   - `pip install pyserial`
   - The code for ploting exist in:[here](plot.py)
+  - Please don't forget to put your plot in (`lab/2/report/2/plot.png`).
 - Create a Fritzing sketch contains both and export it on(`lab/2/report/2/sketch.png`).
-- Write a short report on (lab/2/report/2/README.md)
+- Write a short report on (lab/2/report/2/README.md). It should contains photos.
