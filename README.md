@@ -224,12 +224,12 @@ Upload it to arduino and see result in Serial.
 - Set ESP32 as Master
 - In ESP32 write a code to: 
   - Read data from BME280 
-  - Read Value from Arduino (Read one byte)
+  - Read Value from Arduino (Read one byte [Hint](https://www.arduino.cc/en/Tutorial/MasterReader))
   - (Bonus-Optional) Read data from MPU6050
-  - Write values to the serial in comma seperated form.
+  - Write values to the serial. ( put space between values and newline in each read) .
   > Example: 
   ```
-  Index, Temperature,Pressure,Humidity, arduino input, acceleration.x,acceleration.y,acceleration.z, gyro.x, gyro.y, gyro.z
+  Temperature Pressure Humidity arduinoinput acceleration.x acceleration.y acceleration.z  gyro.x gyro.y gyro.z
   ```
 - Plot data in spreadsheet. (Copy all data in Serial Console to Excel and plot using that)
 - Plot data in realtime Using (hint: review practice 2)
