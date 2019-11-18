@@ -10,7 +10,7 @@ The software is created in the spirit of the Processing programming language and
 - [Download Fritzing](https://github.com/fritzing/fritzing-app/releases/tag/CD-268)
 - Create a new `sketch`.
 - Search for `NodeMCU-32S` fritzing part and add it to Fritzing.
-Note: please insure that the pin maps of the part is as same as the image in Lab 1.
+Note: please insure that the pin maps of the part is as same as the image in Lab 1. (Update: [here](/ESP32-38PinWide.fzpz) is the one which corresponds to the ESP32 component you have)
 - Create a random sketch your self (at least 5 component is needed and please don't forget connect them and use different colors in wiring)
 -- Export the result as image(`lab/2/report/1/sketch.png`)
 - Design the Schematic of that. Please style it in a good format.
