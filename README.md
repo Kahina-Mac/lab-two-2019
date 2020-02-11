@@ -3,7 +3,7 @@
 > All needed codes described in this repository. For more details about markdown please visit the [Example Report](https://github.com/efrei-paris-sud/2019-sample-project/tree/master/lab/1/report/1)
 
 Put all reports into `lab/2/` folder in your repository. 
-> Report Deadline = 15/11/2019
+> Report Deadline = 16/02/2020
 ## Fritzing
 The software is created in the spirit of the Processing programming language and the Arduino microcontroller[4] and allows a designer, artist, researcher, or hobbyist to document their Arduino-based prototype and create a PCB layout for manufacturing. 
 
@@ -15,7 +15,7 @@ Note: please insure that the pin maps of the part is as same as the image in Lab
 -- Export the result as image(`lab/2/report/1/sketch.png`)
 - Design the Schematic of that. Please style it in a good format.
 -- Export the result as image(`lab/2/report/1/schematic.png`)
-- Make a (`lab/2/report/1/README.md`) file and put a the images and a small description on it and **USE MARKDOWN FORMAT PLEASE**. For images please use the uploaded images from your `github`.
+- Make a (`lab/2/report/1/README.md`) file and put the images and a small description on it and **USE MARKDOWN FORMAT PLEASE**. For images please use the uploaded images from your `github`.
 [Example Report](https://github.com/efrei-paris-sud/2019-sample-project/tree/master/lab/1/report/1)
 
 # Communication 
@@ -34,15 +34,17 @@ void setup() {
 > It is important that both devices have the same baud rate (transmission speed). [more info](https://fr.wikipedia.org/wiki/UART)
 > You should change the baud rate in your client to read the data correctly.
 
-To send data to the other device we can easily use. It will print `string`.
+To send data to the other device we can use following instruction.
 ```C
 Serial.print("string");
 ```
-To read data from other device, we can use following code.
+It will print `string`.
+
+To read data from other device, we can use the following instruction.
 ```C
 byte b = Serial.read();
 ```
-For more information click [here](http://wiring.org.co/reference/Serial.html)
+For more information about `Serial` take a look [here](https://www.arduino.cc/reference/en/language/functions/communication/serial/) or [here](http://wiring.org.co/reference/Serial.html)
 
 A simple program:
 ```C
@@ -77,13 +79,14 @@ You can also connect 2 devices with serial communication. Please don't forget to
 
 ![serial communication](https://cdn.sparkfun.com/assets/2/5/c/4/5/50e1ce8bce395fb62b000000.png)
 
-### Practic 2:
-- Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with that. Write a response that your buzzer frequency changed to the read value. (`lab/2/report/2/code1.ino`).
+### Practice 2:
+- Develop an arduino program which can read a byte from serial  and adjust the passive buzzer frequency with it. Write, in response, that your buzzer's frequency has changed to the read value. (`lab/2/report/2/code1.ino`).
 - Connect your Arduino board to computer. Open a serial communication software (You can use built in serial monitor in Arduino IDE by pressing `ctrl`+`shift`+`M` or any other softwares like [Putty](https://www.putty.org/)) and send a value to your board!
-- Connect the LDR to arduino [more info](https://maker.pro/arduino/tutorial/how-to-use-an-ldr-sensor-with-arduino) (`lab/2/report/2/code2.ino`). Then send the value to computer with serial and plot it. Hint: only send sensor value without any other string and follow the steps:
-  - `pip install serial`
+- Connect the LDR to arduino [more info](https://maker.pro/arduino/tutorial/how-to-use-an-ldr-sensor-with-arduino) (`lab/2/report/2/code2.ino`). Then send the value to computer with serial and plot it. Hint: only send sensor value without any other string.
+The code to plot the incoming values is available [here](plot.py). It is written in `Python` and uses `pyserial` and `matplotlib` libraries. You, thus, have to install these two libraries by following these steps:
   - `pip install pyserial`
-  - The code for ploting exist in:[here](plot.py)
-  - Please don't forget to put your plot in (`lab/2/report/2/plot.png`).
+  - `pip install matplotlib`
+
+- Please don't forget to put your plot in (`lab/2/report/2/plot.png`). You can modify the code to improve the way the values are plotted.
 - Create a Fritzing sketch contains both and export it on(`lab/2/report/2/sketch.png`).
-- Write a short report on (lab/2/report/2/README.md). It should contains photos.
+- Write a short report on (lab/2/report/2/README.md). It should contains pictures of your wiring.
