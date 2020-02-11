@@ -1,10 +1,10 @@
-import serial
+from serial import Serial
 import matplotlib.pyplot as plt
 
 plt.ion()
 i=0
 
-ser = serial.Serial('COM6',9600)
+ser = Serial('COM6',9600)
 ser.close()
 ser.open()
 data = ser.readline()
